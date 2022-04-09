@@ -1,4 +1,4 @@
-    local hitbox = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass'Tool'.Handle.SelectionBox
+    local hitbox = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass'Tool'.Handle.Reach
     local timer = 0.03
     _G.RGB = true
     while _G.RGB == true do
