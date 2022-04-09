@@ -1,6 +1,120 @@
+local Reach = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local scripter = Instance.new("TextLabel")
+local num = Instance.new("TextBox")
+local reach = Instance.new("TextButton")
+local main2 = Instance.new("Frame")
+local visible = Instance.new("TextButton")
+local visible2 = Instance.new("TextButton")
+
+Reach.Name = "Reach"
+Reach.Parent = game.CoreGui
+Reach.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = Reach
+main.Active = true
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+main.Position = UDim2.new(0.0915903449, 0, 0.277641296, 0)
+main.Size = UDim2.new(0, 184, 0, 231)
+main.Visible = false
+
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.fromRGB(88, 89, 89)
+title.Size = UDim2.new(0, 184, 0, 33)
+title.Font = Enum.Font.Code
+title.Text = "Reach"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 20.000
+
+scripter.Name = "scripter"
+scripter.Parent = main
+scripter.BackgroundColor3 = Color3.fromRGB(88, 89, 89)
+scripter.Position = UDim2.new(0, 0, 0.909090936, 0)
+scripter.Size = UDim2.new(0, 184, 0, 21)
+scripter.Font = Enum.Font.Code
+scripter.Text = "Hidden#4642"
+scripter.TextColor3 = Color3.fromRGB(255, 255, 255)
+scripter.TextSize = 20.000
+
+num.Name = "num"
+num.Parent = main
+num.BackgroundColor3 = Color3.fromRGB(133, 135, 135)
+num.Position = UDim2.new(0.195652172, 0, 0.268398255, 0)
+num.Size = UDim2.new(0, 106, 0, 33)
+num.Font = Enum.Font.SourceSans
+num.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+num.PlaceholderText = "NUM: #"
+num.Text = ""
+num.TextColor3 = Color3.fromRGB(255, 255, 255)
+num.TextScaled = true
+num.TextSize = 5.000
+num.TextWrapped = true
+
+reach.Name = "reach"
+reach.Parent = main
+reach.BackgroundColor3 = Color3.fromRGB(117, 118, 118)
+reach.Position = UDim2.new(0.190217391, 0, 0.6320346, 0)
+reach.Size = UDim2.new(0, 109, 0, 32)
+reach.Font = Enum.Font.Code
+reach.Text = "Reach!"
+reach.TextColor3 = Color3.fromRGB(255, 255, 255)
+reach.TextSize = 25.000
+
+main2.Name = "main2"
+main2.Parent = Reach
+main2.Active = true
+main2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+main2.Position = UDim2.new(0.128226459, 0, 0.664619267, 0)
+main2.Size = UDim2.new(0, 92, 0, 31)
+main2.Visible = true
+
+visible.Name = "visible"
+visible.Parent = main2
+visible.BackgroundColor3 = Color3.fromRGB(102, 104, 106)
+visible.Position = UDim2.new(0, 0, 0.00291787414, 0)
+visible.Size = UDim2.new(0, 93, 0, 31)
+visible.Font = Enum.Font.Code
+visible.Text = "Open"
+visible.TextColor3 = Color3.fromRGB(255, 255, 255)
+visible.TextSize = 25.000
+
+visible2.Name = "visible2"
+visible2.Parent = main2
+visible2.BackgroundColor3 = Color3.fromRGB(102, 104, 106)
+visible2.Position = UDim2.new(0, 0, 0.00291787414, 0)
+visible2.Size = UDim2.new(0, 93, 0, 31)
+visible2.Visible = false
+visible2.Font = Enum.Font.Code
+visible2.Text = "Close"
+visible2.TextColor3 = Color3.fromRGB(255, 255, 255)
+visible2.TextSize = 25.000
+
+visible.MouseButton1Click:Connect(function()
+    main.Visible = true
+    visible.Visible = false
+    visible2.Visible = true
+end)
+
+visible2.MouseButton1Click:Connect(function()
+    main.Visible = false
+    visible.Visible = true
+    visible2.Visible = false
+end)
+
+reach.MouseButton1Click:Connect(function()
+    local tool = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass'Tool'
+    local tool2 = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass'Tool'.Handle
+    tool.Handle.Size = Vector3.new(num.Text, num.Text, num.Text)
+    tool2 = Instance.new("SelectionBox", tool2)
+    tool2.Name = "Reach"
+    tool2.Adornee = tool.Handle
     local hitbox = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass'Tool'.Handle.Reach
     _G.RGB = true
     while _G.RGB == true do
     task.wait()
     hitbox.Color3 = Color3.fromHSV(tick()%5/5,1,1)
     end
+end)
