@@ -1,0 +1,7 @@
+    local hitbox = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass'Tool'.Handle.SelectionBox
+    local timer = 0.03
+    _G.RGB = true
+    while _G.RGB == true do
+    task.wait(timer)
+    hitbox.Color3 = Color3.fromHSV(tick()%5/5,1,1)
+    end
